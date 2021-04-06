@@ -18,7 +18,7 @@ class CalendarsController < ApplicationController
     params.require(:calendars).permit(:date, :plan)
   end
 
-  def get_week #_を追加、動詞はこれでokなのか
+  def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
@@ -36,7 +36,7 @@ class CalendarsController < ApplicationController
       end
 
       days = {month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans}
-      #シンボル型の囲み方があっているのか
+  
       @week_days.push(days) 
 
     end
